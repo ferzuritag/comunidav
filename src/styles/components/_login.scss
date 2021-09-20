@@ -1,0 +1,40 @@
+
+
+.login__login-box{
+    width: 420px;
+    text-align: center;
+    border: 1px solid $border;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.login__body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 100px);
+    width: 100%;
+}
+
+.login__input{
+    display: block;
+    font-size: 20px;
+    margin: 30px auto;
+    padding: 8px !important;
+    width: 250px;
+}
+
+.login__checkbox{
+    display: block;
+    margin: 20px auto;
+}
+
+.login__title{
+    font-size: 20px;
+    margin: 20px 0 20px 0;
+}
+
+.login__btn{
+    margin: 20px 0 40px 0;
+    padding: 8px 50px !important;
+}

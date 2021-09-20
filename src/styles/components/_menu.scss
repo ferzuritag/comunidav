@@ -1,0 +1,16 @@
+.select-menu {
+    padding: 5px;
+    background-color: $primary;
+    color: white;
+    border: 1px solid darken($color: $primary, $amount: 10);
+    cursor: pointer;
+    margin: 10px;
+    width: 200px;
+    &:focus{
+        outline: none;
+    }
+
+    option{
+        outline: none;
+    }
+}

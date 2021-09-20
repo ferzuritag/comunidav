@@ -1,0 +1,101 @@
+
+.users-screen__label{
+    font-weight: bold;
+    display: inline;
+    width: 100px;
+    text-align: right;
+    margin-right: 10px;
+}
+.users-screen__body{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 100%;
+    height: calc(100vh - 60px);
+}
+.users-screen__form{
+    border: 1px solid $border;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    width: 350px;
+    margin-top: 100px;
+}
+
+.users-screen__group{
+    display: flex;
+    flex-flow: row wrap;
+    width:100%;
+    margin: 10px 20px;
+    align-items: center;
+}
+
+
+
+.users-screen__btn{
+    margin: 10px;
+    padding: 5px 20px;
+}
+.users-screen__btn-ver{
+    margin: 10px;
+    padding: 5px 20px;
+}
+
+.users-screen__btn-group{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.users-screen__users-list{
+    border: 1px solid $border;
+    height: 400px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    overflow: auto;
+}
+
+.users-screen__user-item{
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+    transition: background-color .3s ease;
+    color: #333;
+    text-decoration: none;
+    &:visited{
+        color: #3333;
+    }
+    &:hover{
+        background-color: rgb(218, 218, 218);
+    }
+}
+
+.users-screen__user-item-name{
+    margin-left: 10px;
+    font-weight: bolder;
+}
+
+.users-screen__user-item-type{
+    margin: 5px 10px;
+    color: gray;
+    font-weight: bolder;
+}
+
+.users-screen__menu-container{
+    margin-top: 100px;
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+}
+
+.users_screen__input-search{
+    padding: 5px 10px;
+}

@@ -1,0 +1,36 @@
+.selected-user__form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid $border;
+    width: 400px;
+}
+
+.selected-user__container{
+    display: flex;
+    width: 100%;
+    height: calc(100vh - 60px);
+    align-items: center;
+    justify-content: center;
+}
+.selected-user__group{
+    margin-bottom: 20px;
+}
+
+.selected-user__input{
+    font-size: large;
+}
+
+.selected-user__button{
+    font-size: large;
+    padding: 5px 10px;
+    margin: 10px 20px;
+}
+.selected-user__label{
+    display: inline-block;
+    width: 120px;
+    font-size: large;
+    text-align: right;
+    margin-right: 20px;
+}

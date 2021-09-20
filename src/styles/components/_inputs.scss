@@ -1,0 +1,22 @@
+.input{
+    padding: 3px;
+    background-color: transparent;
+    border: 1px solid $border;
+    border-radius: 4px;
+    transition: border .3s ease;
+
+    &:focus{
+        outline: none;
+        border: none;
+        border-bottom: 1px solid $accept;
+    }
+    &::placeholder{
+        color: #989696;
+    }
+    
+}
+
+.search{
+    background-color: white ;
+    width: 300px;
+}
