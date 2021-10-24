@@ -4,13 +4,15 @@
     color: white;
     border-radius: 2px;
     transition: background-color .3s ease;
-    
     cursor: pointer;
+    &:disabled{
+        background-color: lighten($accept, 10%);;
+    }
 }
 
 .btn-submit{
     background-color: $accept;
-    &:hover{
+    &:enabled:hover{
         background-color: darken($accept, 5%);
     }
 }

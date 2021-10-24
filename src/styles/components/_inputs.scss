@@ -8,7 +8,7 @@
     &:focus{
         outline: none;
         border: none;
-        border-bottom: 1px solid $accept;
+        border: 1px solid $accept;
     }
     &::placeholder{
         color: #989696;
