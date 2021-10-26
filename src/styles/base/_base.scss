@@ -64,6 +64,15 @@ body{
     display: block;
     text-align: center;
 }
+.loading-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 100%;
+    height: calc(100vh - 60px);
+}
 /*Order*/
     /*Position*/
 

@@ -8,8 +8,8 @@ export const Logout = async(token) => {
             method: 'POST',
             body: formData,
         });
-        const { logout } = await resp.json();
-        return logout;
+        const { error } = await resp.json();
+        return error;
     } catch (error) {
         return false;
     }

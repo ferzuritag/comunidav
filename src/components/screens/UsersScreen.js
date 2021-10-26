@@ -6,6 +6,7 @@ import { getUsers } from "../../helpers/getUsers";
 import { Search } from "../others/Search";
 import { UsersList } from "./UsersScreen/UsersList";
 export const UsersScreen = () => {
+  const [isLoading, setIsLoading] = useState(true);
   const [users, setUsers] = useState([]);
   const [countries, setCountries] = useState([]);
   const [states, setStates] = useState([]);
@@ -35,8 +36,8 @@ export const UsersScreen = () => {
       });
       if (error == false) {
         setUsers(data);
-      } else{
-          alert(message);
+      } else {
+        alert(message);
       }
     })();
   };
@@ -69,70 +70,79 @@ export const UsersScreen = () => {
   useEffect(() => {
     (async () => {
       setCountries(await getCountries());
-      const {data} = await getUsers({});
+      const { data } = await getUsers({});
       setUsers(data);
+      setIsLoading(false);
     })();
     return () => {
-      setCountries(null);
-      setCities(null);
-      setStates(null);
-      setUsers(null);
+      setCountries([]);
+      setCities([]);
+      setStates([]);
+      setUsers([]);
     };
   }, []);
   //El valor i en opciones es para index, es necesario que sea un caracter para que funcione la comparacion
-  return (
-    <div className="users-screen__body">
-      <div className="users-screen__menu-container">
-        <select
-          value={selected.country}
-          className="select-menu"
-          onChange={onChangeCountry}
-          name="country"
-        >
-          <option value="i">Pais</option>
-          {countries.map((item) => (
-            <option key={item.id} value={item.id}>
-              {item.name}
-            </option>
-          ))}
-        </select>
-
-        <select
-          value={selected.state}
-          className="select-menu"
-          onChange={onChangeState}
-          name="state"
-        >
-          <option value="i">Estado</option>
-          {states.map((item) => (
-            <option key={item.id} value={item.id}>
-              {item.name}
-            </option>
-          ))}
-        </select>
-
-        <select
-          value={selected.city}
-          className="select-menu"
-          onChange={handleSelectChange}
-          name="city"
-        >
-          <option value="i">Municipio</option>
-          {cities.map((item) => (
-            <option key={item.id} value={item.id}>
-              {item.name}
-            </option>
-          ))}
-        </select>
+  if (isLoading ===true) {
+    return (
+      <div className="loading-container">
+        <p>Cargando...</p>
       </div>
+    );
+  } else {
+    return (
+      <div className="users-screen__body">
+        <div className="users-screen__menu-container">
+          <select
+            value={selected.country}
+            className="select-menu"
+            onChange={onChangeCountry}
+            name="country"
+          >
+            <option value="i">Pais</option>
+            {countries.map((item) => (
+              <option key={item.id} value={item.id}>
+                {item.name}
+              </option>
+            ))}
+          </select>
 
-      <Search
-        className="search_container mt-s "
-        onChangeSearch={handleSelectChange}
-        onSearch={handleSearch}
-        Search={selected.search}
-      />
-      <UsersList className="users-screen__users-list mt-b" users={users} />
-    </div>
-  );
+          <select
+            value={selected.state}
+            className="select-menu"
+            onChange={onChangeState}
+            name="state"
+          >
+            <option value="i">Estado</option>
+            {states.map((item) => (
+              <option key={item.id} value={item.id}>
+                {item.name}
+              </option>
+            ))}
+          </select>
+
+          <select
+            value={selected.city}
+            className="select-menu"
+            onChange={handleSelectChange}
+            name="city"
+          >
+            <option value="i">Municipio</option>
+            {cities.map((item) => (
+              <option key={item.id} value={item.id}>
+                {item.name}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <Search
+          className="search_container mt-s "
+          onChangeSearch={handleSelectChange}
+          onSearch={handleSearch}
+          Search={selected.search}
+        />
+        <UsersList className="users-screen__users-list mt-b" users={users} />
+      </div>
+    );
+  }
 };

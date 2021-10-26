@@ -1,15 +1,14 @@
 export const getAsocsById = async (id) => {
     try {
-        const url = `http://localhost:8080/master-php/comunidav/api/Asocs.php?id=${id}&token=${sessionStorage.getItem("SESSID")}`;
-        const resp = await fetch(url);
-        const data = await resp.json();
-        const array = data.map(({ID,Razon_Social,Descripcion,ID_Categoria }) => ({
-            "id": ID,
-            "name": Razon_Social,
-            "description": Descripcion,
-            "category": ID_Categoria,
-        }))
-        return array[0];
+        const url = `http://localhost:8080/master-php/comunidav/api/Asocs.php?id=${id}}`;
+        const resp = await fetch(url,{
+            method: "GET",
+            headers:{
+                'access-token': sessionStorage.getItem("SESSID")
+            }
+        });
+        const {data} = await resp.json();
+        return data;
     } catch (error) {
         return [];
     }

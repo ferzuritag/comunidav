@@ -2,8 +2,13 @@ import validator from "validator"
 export const getAsocs = async ({ name = ''}) => {
     if (!validator.isEmpty(name)) {
         try {
-            const url = `http://localhost:8080/master-php/comunidav/api/Asocs.php?namelike=${name}&token=${sessionStorage.getItem("SESSID")}`;
-            const resp = await fetch(url);
+            const url = `http://localhost:8080/master-php/comunidav/api/Asocs.php?namelike=${name}}`;
+            const resp = await fetch(url,{
+                method: "GET",
+                headers:{
+                    'access-token': sessionStorage.getItem("SESSID")
+                }
+            });
             const data = await resp.json();
             return data;
         } catch (error) {
@@ -11,8 +16,13 @@ export const getAsocs = async ({ name = ''}) => {
         }
     } else {
         try {
-            const url = `http://localhost:8080/master-php/comunidav/api/Asocs.php?token=${sessionStorage.getItem("SESSID")}`;
-            const resp = await fetch(url);
+            const url = `http://localhost:8080/master-php/comunidav/api/Asocs.php?}`;
+            const resp = await fetch(url,{
+                method: "GET",
+                headers:{
+                    'access-token': sessionStorage.getItem("SESSID")
+                }
+            });
             const data = await resp.json();
             return data;
         } catch (error) {

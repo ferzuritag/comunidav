@@ -3,7 +3,12 @@ export const getUsers = async ({username = '', country = '',state = '',city = ''
     if(!validator.isEmpty(username) && validator.isInt(city)){
         try {
             const url = `http://localhost:8080/master-php/comunidav/api/Users.php?userlike=${username}&city=${city}&token=${sessionStorage.getItem('SESSID')}`;
-            const resp = await fetch(url);
+            const resp = await fetch(url,{
+                method: "GET",
+                headers:{
+                    'access-token': sessionStorage.getItem("SESSID")
+                }
+            });
             const data = await resp.json();
             return data;
         } catch (error) {
@@ -12,7 +17,12 @@ export const getUsers = async ({username = '', country = '',state = '',city = ''
     } else if(!validator.isEmpty(username) && validator.isInt(state)){
         try {
             const url = `http://localhost:8080/master-php/comunidav/api/Users.php?userlike=${username}&state=${state}&token=${sessionStorage.getItem('SESSID')}`;
-            const resp = await fetch(url);
+            const resp = await fetch(url,{
+                method: "GET",
+                headers:{
+                    'access-token': sessionStorage.getItem("SESSID")
+                }
+            });
             const data = await resp.json();
             return data;
         } catch (error) {
@@ -21,7 +31,12 @@ export const getUsers = async ({username = '', country = '',state = '',city = ''
     } else if(!validator.isEmpty(username) && validator.isInt(country)){
         try {
             const url = `http://localhost:8080/master-php/comunidav/api/Users.php?userlike=${username}&country=${country}&token=${sessionStorage.getItem('SESSID')}`;
-            const resp = await fetch(url);
+            const resp = await fetch(url,{
+                method: "GET",
+                headers:{
+                    'access-token': sessionStorage.getItem("SESSID")
+                }
+            });
             const data = await resp.json();
             return data;
         } catch (error) {
@@ -30,7 +45,12 @@ export const getUsers = async ({username = '', country = '',state = '',city = ''
     } else if(validator.isInt(city)){
         try {
             const url = `http://localhost:8080/master-php/comunidav/api/Users.php?city=${city}&token=${sessionStorage.getItem('SESSID')}`;
-            const resp = await fetch(url);
+            const resp = await fetch(url,{
+                method: "GET",
+                headers:{
+                    'access-token': sessionStorage.getItem("SESSID")
+                }
+            });
             const data = await resp.json();
             return data;
         } catch (error) {
@@ -39,7 +59,12 @@ export const getUsers = async ({username = '', country = '',state = '',city = ''
     } else if(validator.isInt(state) ){
         try {
             const url = `http://localhost:8080/master-php/comunidav/api/Users.php?state=${state}&token=${sessionStorage.getItem('SESSID')}`;
-            const resp = await fetch(url);
+            const resp = await fetch(url,{
+                method: "GET",
+                headers:{
+                    'access-token': sessionStorage.getItem("SESSID")
+                }
+            });
             const data = await resp.json();
             return data;
         } catch (error) {
@@ -48,7 +73,12 @@ export const getUsers = async ({username = '', country = '',state = '',city = ''
     } else if(validator.isInt(country)  ){
         try {
             const url = `http://localhost:8080/master-php/comunidav/api/Users.php?country=${country}&token=${sessionStorage.getItem('SESSID')}`;
-            const resp = await fetch(url);
+            const resp = await fetch(url,{
+                method: "GET",
+                headers:{
+                    'access-token': sessionStorage.getItem("SESSID")
+                }
+            });
             const data = await resp.json();
             return data;
         } catch (error) {
@@ -60,7 +90,12 @@ export const getUsers = async ({username = '', country = '',state = '',city = ''
     } else if(!validator.isEmpty(username)){
         try {
             const url = `http://localhost:8080/master-php/comunidav/api/Users.php?userlike=${username}&token=${sessionStorage.getItem('SESSID')}`;
-            const resp = await fetch(url);
+            const resp = await fetch(url,{
+                method: "GET",
+                headers:{
+                    'access-token': sessionStorage.getItem("SESSID")
+                }
+            });
             const data = await resp.json();
             return data;
         } catch (error) {
@@ -70,7 +105,12 @@ export const getUsers = async ({username = '', country = '',state = '',city = ''
     }else{
         try {
             const url = `http://localhost:8080/master-php/comunidav/api/Users.php?token=${sessionStorage.getItem('SESSID')}`;
-            const resp = await fetch(url);
+            const resp = await fetch(url,{
+                method: "GET",
+                headers:{
+                    'access-token': sessionStorage.getItem("SESSID")
+                }
+            });
             const data = await resp.json();
             return data;
         } catch (error) {

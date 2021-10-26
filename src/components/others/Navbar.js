@@ -5,12 +5,16 @@ import { Logout } from '../../helpers/Logout';
 export const Navbar = () => {
     const history = useHistory();
     const handleLogout = async() => {
-        const logoutOk = await Logout(sessionStorage.getItem("SESSID"));
-        if (logoutOk) {
+        const error = await Logout(sessionStorage.getItem("SESSID"));
+        if (!error) {
             sessionStorage.removeItem("SESSID");
             history.go(0);
         } else {
-            alert('no se pudo cerrar sesion');
+            const response = window.confirm("¿Hubo un error al cerrar Sesion, continuar de todos modos?");
+            if (response) {
+                sessionStorage.removeItem("SESSID");
+                history.go(0);
+            }
         };
     }
     return (
