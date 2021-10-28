@@ -1,6 +1,8 @@
+import { server } from "../server";
+
 export const getAsocsById = async (id) => {
     try {
-        const url = `http://localhost:8080/master-php/comunidav/api/Asocs.php?id=${id}}`;
+        const url = `${server}Asocs.php?id=${id}}`;
         const resp = await fetch(url,{
             method: "GET",
             headers:{

@@ -1,9 +1,10 @@
 import validator from "validator";
+import { server } from "../server";
 //fix, if not online crashes
 export const getStatesByCountry = async (id) => {
   if (validator.isInt(id)) {
     try {
-      const url = `http://localhost:8080/master-php/comunidav/api/States.php?country=${id}&token=${sessionStorage.getItem(
+      const url = `${server}country=${id}&token=${sessionStorage.getItem(
         "SESSID"
       )}`;
       const resp = await fetch(url);

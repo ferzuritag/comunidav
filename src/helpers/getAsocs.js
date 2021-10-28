@@ -1,8 +1,9 @@
 import validator from "validator"
+import { server } from "../server";
 export const getAsocs = async ({ name = ''}) => {
     if (!validator.isEmpty(name)) {
         try {
-            const url = `http://localhost:8080/master-php/comunidav/api/Asocs.php?namelike=${name}`;
+            const url = `${server}Asocs.php?namelike=${name}`;
             const resp = await fetch(url,{
                 method: "GET",
                 headers:{
@@ -17,7 +18,7 @@ export const getAsocs = async ({ name = ''}) => {
         }
     } else {
         try {
-            const url = `http://localhost:8080/master-php/comunidav/api/Asocs.php?}`;
+            const url = `${server}Asocs.php?}`;
             const resp = await fetch(url,{
                 method: "GET",
                 headers:{

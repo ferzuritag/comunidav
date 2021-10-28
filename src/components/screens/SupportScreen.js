@@ -5,6 +5,7 @@ import { getSupportInboxFrom } from "../../helpers/getSupportInboxFrom";
 import { UsersList } from "./SupportChat/UsersList";
 
 export const SupportScreen = () => {
+  /*
   const [socketUrl, setSocketUrl] = useState("ws://localhost:8080");
   const [usersList, setusersList] = useState([]);
   const [messageHistorial, setmessageHistorial] = useState([]);
@@ -29,7 +30,7 @@ export const SupportScreen = () => {
     setSocketUrl('wss://demos.kaazing.com/echo'), []);
 
   const handleClickSendMessage = useCallback(() =>
-    sendMessage('Hello'), []);*/
+    sendMessage('Hello'), []);
 
   const connectionStatus = {
     [ReadyState.CONNECTING]: "Connecting",
@@ -68,7 +69,7 @@ export const SupportScreen = () => {
     //if (lastMessage.from === selectedUser) {
     messageHistory.push(lastMessage);
     //}
-  }, [lastMessage]);
+  }, [lastMessage]);*/
   return (
     <div className="support__body">
       <div>

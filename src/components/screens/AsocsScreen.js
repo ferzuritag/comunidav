@@ -16,7 +16,6 @@ export const AsocsScreen = () => {
       const  {data}  = await getAsocs({
         name: search,
       });
-      console.log(data)
       setAsocs(data);
     })();
   };

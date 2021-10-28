@@ -1,7 +1,8 @@
+import { server } from "../server";
 
 export const getSupportInbox = async() => {
     try {
-        const url = `http://localhost:8080/master-php/comunidav/api/Inbox.php?token=${sessionStorage.getItem("SESSID")}`;
+        const url = `${server}Inbox.php?token=${sessionStorage.getItem("SESSID")}`;
         const resp = await fetch(url);
         const data = await resp.json();
         const array = data.map(({ ID, Usuario,Direccion_Imagen,Nombre }) => ({

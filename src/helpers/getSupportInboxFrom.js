@@ -1,7 +1,9 @@
+import { server } from "../server";
+
 //
 export const getSupportInboxFrom = async(id) => {
     try {
-        const url = `http://localhost:8080/master-php/comunidav/api/Inbox.php?token=${sessionStorage.getItem("SESSID")}&id=${id}`;
+        const url = `${server}Inbox.php?token=${sessionStorage.getItem("SESSID")}&id=${id}`;
         const resp = await fetch(url,{
             method: "GET",
             headers:{

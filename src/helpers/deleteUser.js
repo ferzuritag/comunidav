@@ -1,8 +1,10 @@
+import { server } from "../server";
+
 export const deleteUser = async(id) => {
     const formData = new FormData();
     formData.append("delete_user", id);
     try {
-        const url = `http://localhost:8080/master-php/comunidav/api/Users.php`;
+        const url = `${server}Users.php`;
         const resp = await fetch(url,{
           method: "POST",
           headers:{

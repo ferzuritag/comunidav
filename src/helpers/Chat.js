@@ -9,6 +9,5 @@ export const Chat = () =>{
     conn.onmessage = (e) =>{
         console.log(e.data)
     }
-
     conn.send();
 }
