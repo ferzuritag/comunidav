@@ -2,7 +2,7 @@ import validator from "validator"
 export const getAsocs = async ({ name = ''}) => {
     if (!validator.isEmpty(name)) {
         try {
-            const url = `http://localhost:8080/master-php/comunidav/api/Asocs.php?namelike=${name}}`;
+            const url = `http://localhost:8080/master-php/comunidav/api/Asocs.php?namelike=${name}`;
             const resp = await fetch(url,{
                 method: "GET",
                 headers:{
@@ -10,6 +10,7 @@ export const getAsocs = async ({ name = ''}) => {
                 }
             });
             const data = await resp.json();
+            console.log(name,data)
             return data;
         } catch (error) {
             return [];

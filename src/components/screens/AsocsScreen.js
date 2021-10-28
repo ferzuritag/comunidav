@@ -13,11 +13,10 @@ export const AsocsScreen = () => {
   const handleSearch = (e) => {
     e.preventDefault();
     (async () => {
-      const { data } = await getAsocs({
+      const  {data}  = await getAsocs({
         name: search,
       });
-
-      console.log(data);
+      console.log(data)
       setAsocs(data);
     })();
   };

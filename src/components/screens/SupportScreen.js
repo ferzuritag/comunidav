@@ -1,32 +1,30 @@
-import React, { useState, useMemo, useRef, useEffect } from 'react';
-import useWebSocket, { ReadyState } from 'react-use-websocket';
-import { getSupportInbox } from '../../helpers/getSupportInbox';
-import { getSupportInboxFrom } from '../../helpers/getSupportInboxFrom';
-import { UsersList } from './SupportChat/UsersList';
+import React, { useState, useMemo, useRef, useEffect } from "react";
+import useWebSocket, { ReadyState } from "react-use-websocket";
+import { getSupportInbox } from "../../helpers/getSupportInbox";
+import { getSupportInboxFrom } from "../../helpers/getSupportInboxFrom";
+import { UsersList } from "./SupportChat/UsersList";
 
 export const SupportScreen = () => {
-  const [socketUrl, setSocketUrl] = useState('ws://localhost:8080');
-  const [usersList, setusersList] = useState([])
-  const [messageHistorial, setmessageHistorial] = useState([])
+  const [socketUrl, setSocketUrl] = useState("ws://localhost:8080");
+  const [usersList, setusersList] = useState([]);
+  const [messageHistorial, setmessageHistorial] = useState([]);
   const [message, setMessage] = useState({
     type: "msg-support",
-    content: '',
+    content: "",
   });
   const [selectedUser, setSelectedUser] = useState(0);
-  const [messageHistory, setMessageHistory] = useState([])
+  const [messageHistory, setMessageHistory] = useState([]);
 
-  const {
-    sendMessage,
-    lastMessage,
-    readyState,
-  } = useWebSocket(socketUrl);
+  const { sendMessage, lastMessage, readyState } = useWebSocket(socketUrl);
 
   useEffect(() => {
-    sendMessage(JSON.stringify({
-      type: 'login_Support',
-      content: sessionStorage.getItem("SESSID")
-    }));
-  }, [])
+    sendMessage(
+      JSON.stringify({
+        type: "login_Support",
+        content: sessionStorage.getItem("SESSID"),
+      })
+    );
+  }, []);
   /*const handleClickChangeSocketUrl = useCallback(() =>
     setSocketUrl('wss://demos.kaazing.com/echo'), []);
 
@@ -34,11 +32,11 @@ export const SupportScreen = () => {
     sendMessage('Hello'), []);*/
 
   const connectionStatus = {
-    [ReadyState.CONNECTING]: 'Connecting',
-    [ReadyState.OPEN]: 'Open',
-    [ReadyState.CLOSING]: 'Closing',
-    [ReadyState.CLOSED]: 'Closed',
-    [ReadyState.UNINSTANTIATED]: 'Uninstantiated',
+    [ReadyState.CONNECTING]: "Connecting",
+    [ReadyState.OPEN]: "Open",
+    [ReadyState.CLOSING]: "Closing",
+    [ReadyState.CLOSED]: "Closed",
+    [ReadyState.UNINSTANTIATED]: "Uninstantiated",
   }[readyState];
 
   const handleMsgChange = (e) => {
@@ -54,10 +52,10 @@ export const SupportScreen = () => {
   useEffect(() => {
     (async () => {
       const supportInbox = await getSupportInbox();
-      console.log(supportInbox)
+      console.log(supportInbox);
       setusersList(supportInbox);
     })();
-  }, [])
+  }, []);
   useEffect(() => {
     (async () => {
       setMessageHistory([]);
@@ -68,13 +66,16 @@ export const SupportScreen = () => {
 
   useEffect(() => {
     //if (lastMessage.from === selectedUser) {
-      messageHistory.push(lastMessage);
+    messageHistory.push(lastMessage);
     //}
-
   }, [lastMessage]);
   return (
-    <div className="support-screen__container">
-      <UsersList className="support-screen__users-list" users={usersList} setSelected={setSelectedUser} />
+    <div className="support__body">
+      <div>
+        <img src="https://media.giphy.com/media/905GG7MjDw61q/giphy.gif" />
+        <p>Estamos trabajando para traer esta seccion a produccion</p>
+      </div>
+      {/*<UsersList className="support-screen__users-list" users={usersList} setSelected={setSelectedUser} />
       <div className="support-screen__chat">
         <form className="support-screen__chat-msgbar">
           <input className="input support-screen__chat-input" placeholder="Escribe un mensaje..." value={message.content} onChange={handleMsgChange} />
@@ -95,9 +96,9 @@ export const SupportScreen = () => {
                     null)
               :
               null
-          }
+          
         </ul>
-      </div>
+          </div>}*/}
     </div>
-  )
-}
+  );
+};

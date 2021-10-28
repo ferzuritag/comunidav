@@ -1,7 +1,25 @@
+.support__body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 100px);
+    width: 100%;
+    font-weight: bold;
+    div{
+        width: 300px;
+        text-align: center;
+    }
+
+    img{
+        width: 300px;
+        border-radius: 10px;
+    }
+    
+}
+
 .support-screen__chat{
     position: relative;
     border: 1px solid $border;
-    
     width: 70%;
     height: 80vh;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
