@@ -34,7 +34,7 @@ export const UsersScreen = () => {
         state: selected.state,
         city: selected.city,
       });
-      if (error == false) {
+      if (error === false) {
         setUsers(data);
       } else {
         alert(message);

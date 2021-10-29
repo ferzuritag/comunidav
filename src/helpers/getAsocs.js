@@ -11,14 +11,15 @@ export const getAsocs = async ({ name = ''}) => {
                 }
             });
             const data = await resp.json();
-            console.log(name,data)
+            console.log(name , data)
             return data;
         } catch (error) {
+            console.log(error)
             return [];
         }
     } else {
         try {
-            const url = `${server}Asocs.php?}`;
+            const url = `${server}Asocs.php`;
             const resp = await fetch(url,{
                 method: "GET",
                 headers:{
@@ -27,8 +28,8 @@ export const getAsocs = async ({ name = ''}) => {
             });
             const data = await resp.json();
             return data;
-        } catch (error) {
+          } catch (error) {
             return [];
-        }
+          }
     }
 }

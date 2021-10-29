@@ -4,7 +4,6 @@ import { UsersListItem } from './UsersListItem';
 export const UsersList = ({className, users = [], setSelected }) => {
     const changeSelected = (e) =>{
         setSelected(e.target.id);
-        console.log('la madre cambio a ', e.target.id)
     }
     return (
         <ul className = {className}>

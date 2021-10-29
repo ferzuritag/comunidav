@@ -5,7 +5,7 @@ import { Banner } from "../others/Banner";
 import { Footer } from "../others/Footer";
 
 export const LoginScreen = () => {
-  let history = useHistory();
+  const history = useHistory();
   const [disable, setDisable] = useState(false);
   const [loginData, setLoginData] = useState({
     user: "",
@@ -23,7 +23,7 @@ export const LoginScreen = () => {
     e.preventDefault();
     setDisable(true);
     const { error, data, message } = await Login(loginData);
-    if (error == false) {
+    if (error === false) {
       sessionStorage.setItem("SESSID", data.token);
       history.go(0);
     } else {
@@ -47,6 +47,7 @@ export const LoginScreen = () => {
               name="user"
               autoComplete="off"
             />
+
             <input
               className=" input login__input"
               type="password"
@@ -56,6 +57,7 @@ export const LoginScreen = () => {
               name="password"
               autoComplete="off"
             />
+
             <button
               className="btn btn-submit login__btn"
               onClick={handleLogin}

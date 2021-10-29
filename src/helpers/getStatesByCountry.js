@@ -4,9 +4,7 @@ import { server } from "../server";
 export const getStatesByCountry = async (id) => {
   if (validator.isInt(id)) {
     try {
-      const url = `${server}country=${id}&token=${sessionStorage.getItem(
-        "SESSID"
-      )}`;
+      const url = `${server}States.php?country=${id}`;
       const resp = await fetch(url);
       const { data } = await resp.json();
       const array = data.map(({ name, id }) => ({

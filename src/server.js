@@ -1,1 +1,1 @@
-export const server = "https://soporte.comunidav.org/api/";
+export const server = "http://soporte.comunidav.org/api/";

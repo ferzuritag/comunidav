@@ -37,12 +37,12 @@ export const SelectedAsoc = ({ history }) => {
 
   const handleSave = async (e) => {
     e.preventDefault();
-    if (name.length <  6) {
+    if (name.length < 6) {
       await alert("El nombre debe ser minimo de 6 caracteres");
     } else if (description.length < 6) {
-        await alert("La descripcion debe ser minimo de 6 caracteres");
+      await alert("La descripcion debe ser minimo de 6 caracteres");
     } else if (!validator.isInt(category.toString())) {
-        await alert("Por favor elija una categoria");
+      await alert("Por favor elija una categoria");
     } else {
       const resp = await updateAsoc(asocData);
       await alert(resp);
@@ -58,6 +58,7 @@ export const SelectedAsoc = ({ history }) => {
       history.replace("/asocs");
     }
   };
+
   if (isLoading) {
     return (
       <div className="loading-container">
@@ -79,6 +80,7 @@ export const SelectedAsoc = ({ history }) => {
               name="name"
             />
           </div>
+
           <div className=" selected-user__group">
             <label className="selected-user__label">Descripcion</label>
             <textarea
@@ -90,6 +92,7 @@ export const SelectedAsoc = ({ history }) => {
               name="description"
             />
           </div>
+
           <div className=" selected-user__group">
             <label className="selected-user__label">Categoria</label>
             <select
@@ -106,6 +109,7 @@ export const SelectedAsoc = ({ history }) => {
               ))}
             </select>
           </div>
+
           <span className="user-select__button-group">
             <button
               className="btn btn-del selected-user__button"

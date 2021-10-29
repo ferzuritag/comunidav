@@ -29,7 +29,7 @@ export const SelectedUser = ({ history }) => {
   const {
     id,
     name,
-    lastName,
+    lastName:lastName1,
     lastName2,
     username,
     email,
@@ -90,7 +90,7 @@ export const SelectedUser = ({ history }) => {
       alert("Usuario muy corto");
     } else if (validator.isEmpty(name)) {
       alert("Rellene su campo Nombre");
-    } else if (validator.isEmpty(lastName)) {
+    } else if (validator.isEmpty(lastName1)) {
       alert("Rellene su campo Apellido Paterno");
     } else if (validator.isEmpty(lastName2)) {
       alert("Rellene su campo Apellido Materno");
@@ -118,7 +118,7 @@ export const SelectedUser = ({ history }) => {
       const data = await deleteUser(id);
       const{error,message} = data;
       console.log(await data)
-      if (error == false) {
+      if (error === false) {
         await alert(message);
         history.replace("/users");
       }else{
@@ -161,7 +161,7 @@ export const SelectedUser = ({ history }) => {
               className="input selected-user__input"
               type="text"
               placeholder="ej. comunidav99"
-              value={lastName}
+              value={lastName1}
               onChange={handleChange}
               name="lastName"
             />

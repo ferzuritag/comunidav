@@ -17,7 +17,7 @@ export const getUserById = async(id) =>{
             return {
                 id: '',
                 name : '',
-                lastName : '',
+                lastName1 : '',
                 lastName2: '',
                 username: '',
                 email: '',
@@ -32,7 +32,7 @@ export const getUserById = async(id) =>{
         return {
             id: '',
             name : '',
-            lastName : '',
+            lastName1 : '',
             lastName2: '',
             username: '',
             email: '',

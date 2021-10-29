@@ -22,11 +22,13 @@ export const AsocsScreen = () => {
 
   useEffect(() => {
     (async () => {
-      const { data } = await getAsocs({});
+      const {data}  = await getAsocs({});
+      console.log(data)
       setAsocs(data);
       setIsLoading(false);
     })();
   }, []);
+  
   if (isLoading) {
     return (
       <div className="loading-container">

@@ -1,3 +1,5 @@
+import { server } from "../server";
+
 export const updateAsoc = async ({ id, name, description, category }) => {
   const formData = new FormData();
   formData.append("id", id);
@@ -6,7 +8,7 @@ export const updateAsoc = async ({ id, name, description, category }) => {
   formData.append("category", category);
   formData.append("token", sessionStorage.getItem("SESSID"));
   try {
-    const url = `http://localhost:8080/master-php/comunidav/api/Asocs.php`;
+    const url = `${server}Asocs.php`;
     const resp = await fetch(url, {
       headers: {
         "access-token": sessionStorage.getItem("SESSID"),

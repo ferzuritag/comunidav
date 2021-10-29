@@ -1,8 +1,5 @@
-import React, { useState, useMemo, useRef, useEffect } from "react";
-import useWebSocket, { ReadyState } from "react-use-websocket";
-import { getSupportInbox } from "../../helpers/getSupportInbox";
-import { getSupportInboxFrom } from "../../helpers/getSupportInboxFrom";
-import { UsersList } from "./SupportChat/UsersList";
+import React from "react";
+
 
 export const SupportScreen = () => {
   /*
@@ -73,7 +70,7 @@ export const SupportScreen = () => {
   return (
     <div className="support__body">
       <div>
-        <img src="https://media.giphy.com/media/905GG7MjDw61q/giphy.gif" />
+        <img src="https://media.giphy.com/media/905GG7MjDw61q/giphy.gif" alt="maintanance"/>
         <p>Estamos trabajando para traer esta seccion a produccion</p>
       </div>
       {/*<UsersList className="support-screen__users-list" users={usersList} setSelected={setSelectedUser} />
