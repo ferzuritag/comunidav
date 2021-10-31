@@ -16,9 +16,13 @@ export const updateAsoc = async ({ id, name, description, category }) => {
       method: "POST",
       body: formData,
     });
-    const { msg } = await resp.json();
-    return msg;
+    const data = await resp.json();
+    return data;
   } catch (error) {
-    return error;
+    return {
+      error: true,
+      message: "Ocurrio un error, intente de nuevo",
+      data:[]
+  };
   }
 };

@@ -12,6 +12,10 @@ export const Logout = async(token) => {
         const { error } = await resp.json();
         return error;
     } catch (error) {
-        return false;
+        return {
+            error: true,
+            message: "Ocurrio un error, intente de nuevo",
+            data:[]
+        };
     }
 }

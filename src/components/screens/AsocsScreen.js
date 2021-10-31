@@ -13,22 +13,30 @@ export const AsocsScreen = () => {
   const handleSearch = (e) => {
     e.preventDefault();
     (async () => {
-      const  {data}  = await getAsocs({
+      const { error, message, data } = await getAsocs({
         name: search,
       });
-      setAsocs(data);
+      if (!error) {
+        setAsocs(data);
+      } else {
+        alert(message);
+      }
     })();
   };
 
   useEffect(() => {
     (async () => {
-      const {data}  = await getAsocs({});
-      console.log(data)
-      setAsocs(data);
+      const { error, data } = await getAsocs({});
+      if (!error) {
+        setAsocs(data);
+      }
       setIsLoading(false);
     })();
+    return () => {
+      setAsocs([]);
+    };
   }, []);
-  
+
   if (isLoading) {
     return (
       <div className="loading-container">

@@ -2,12 +2,12 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { deleteAsoc } from "../../helpers/deleteAsoc";
 import { getAsocsById } from "../../helpers/getAsocsById";
-import { getCategories } from "../../helpers/getCategories";
 import { updateAsoc } from "../../helpers/updateAsoc";
 import validator from "validator";
+import { categories } from "./AsocsScreen/categories";
 export const SelectedAsoc = ({ history }) => {
   const { asocID } = useParams();
-  const [categories, setCategories] = useState([]);
+  // const [categoriesList, setCategories] = useState(categories);
   const [asocData, setAsocData] = useState({
     id: asocID,
     name: "",
@@ -19,13 +19,12 @@ export const SelectedAsoc = ({ history }) => {
 
   useEffect(() => {
     (async () => {
-      const userData = await getAsocsById(id);
-      setAsocData(userData);
-      const categories = await getCategories();
-      setCategories(categories);
-      setIsLoading();
+      const { error, data: asocData } = await getAsocsById(id);
+      if (!error) {
+        setAsocData(asocData);
+      }
+      setIsLoading(false);
     })();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleChange = (e) => {
@@ -44,18 +43,26 @@ export const SelectedAsoc = ({ history }) => {
     } else if (!validator.isInt(category.toString())) {
       await alert("Por favor elija una categoria");
     } else {
-      const resp = await updateAsoc(asocData);
-      await alert(resp);
-      history.replace("/asocs");
+      const { error, message } = await updateAsoc(asocData);
+      if (!error) {
+        await alert(message);
+        history.replace("/asocs");
+      } else {
+        await alert(message);
+      }
     }
   };
 
   const handleDelete = async (e) => {
     var option = window.confirm("¿Esta seguro que desea eliminar?");
     if (option === true) {
-      const resp = await deleteAsoc(id);
-      await alert(resp);
-      history.replace("/asocs");
+      const { error, message } = await deleteAsoc(id);
+      if (error) {
+        await alert(message);
+      } else {
+        alert(message);
+        history.replace("/asocs");
+      }
     }
   };
 

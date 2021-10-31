@@ -13,7 +13,11 @@ export const getUsers = async ({username = '', country = '',state = '',city = ''
             const data = await resp.json();
             return data;
         } catch (error) {
-            return [];
+            return {
+                error: true,
+                message: "Ocurrio un error, intente de nuevo",
+                data:[]
+            };
         }
     } else if(!validator.isEmpty(username) && validator.isInt(state)){
         try {
@@ -27,7 +31,11 @@ export const getUsers = async ({username = '', country = '',state = '',city = ''
             const data = await resp.json();
             return data;
         } catch (error) {
-            return [];
+            return {
+                error: true,
+                message: "Ocurrio un error, intente de nuevo",
+                data:[]
+            };
         }
     } else if(!validator.isEmpty(username) && validator.isInt(country)){
         try {
@@ -41,7 +49,11 @@ export const getUsers = async ({username = '', country = '',state = '',city = ''
             const data = await resp.json();
             return data;
         } catch (error) {
-            return [];
+            return {
+                error: true,
+                message: "Ocurrio un error, intente de nuevo",
+                data:[]
+            };
         }
     } else if(validator.isInt(city)){
         try {
@@ -55,7 +67,11 @@ export const getUsers = async ({username = '', country = '',state = '',city = ''
             const data = await resp.json();
             return data;
         } catch (error) {
-            return [];
+            return {
+                error: true,
+                message: "Ocurrio un error, intente de nuevo",
+                data:[]
+            };
         }
     } else if(validator.isInt(state) ){
         try {
@@ -69,7 +85,11 @@ export const getUsers = async ({username = '', country = '',state = '',city = ''
             const data = await resp.json();
             return data;
         } catch (error) {
-            return [];
+            return {
+                error: true,
+                message: "Ocurrio un error, intente de nuevo",
+                data:[]
+            };
         }
     } else if(validator.isInt(country)  ){
         try {
@@ -85,7 +105,8 @@ export const getUsers = async ({username = '', country = '',state = '',city = ''
         } catch (error) {
             return {
                 error: true,
-                message: `Ocurrio un error en la aplicacion e: ${error}`
+                message: "Ocurrio un error, intente de nuevo",
+                data:[]
             };
         }
     } else if(!validator.isEmpty(username)){
@@ -100,8 +121,11 @@ export const getUsers = async ({username = '', country = '',state = '',city = ''
             const data = await resp.json();
             return data;
         } catch (error) {
-            console.log(error)
-            return [];
+            return {
+                error: true,
+                message: "Ocurrio un error, intente de nuevo",
+                data:[]
+            };
         }
     }else{
         try {
@@ -109,13 +133,17 @@ export const getUsers = async ({username = '', country = '',state = '',city = ''
             const resp = await fetch(url,{
                 method: "GET",
                 headers:{
-                    'access-token': sessionStorage.getItem("SESSID")
+                    'access-token': sessionStorage.getItem("SESSID"),
                 }
             });
             const data = await resp.json();
             return data;
         } catch (error) {
-            return [];
+            return {
+                error: true,
+                message: "Ocurrio un error, intente de nuevo",
+                data:[]
+            };
         }
     }
 }

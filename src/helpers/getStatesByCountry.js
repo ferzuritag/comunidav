@@ -6,16 +6,20 @@ export const getStatesByCountry = async (id) => {
     try {
       const url = `${server}States.php?country=${id}`;
       const resp = await fetch(url);
-      const { data } = await resp.json();
-      const array = data.map(({ name, id }) => ({
-        id: id,
-        name: name,
-      }));
-      return array;
+      const data = await resp.json();
+      return data;
     } catch (error) {
-      return [];
+      return {
+        error: true,
+        message: "Ocurrio un error, intente de nuevo",
+        data:[]
+    };
     }
   } else {
-    return [];
+    return {
+      error: true,
+      message: "Ocurrio un error, intente de nuevo",
+      data:[]
+  };
   }
 };

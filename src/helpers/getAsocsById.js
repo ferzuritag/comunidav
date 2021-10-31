@@ -9,23 +9,13 @@ export const getAsocsById = async (id) => {
         "access-token": sessionStorage.getItem("SESSID"),
       },
     });
-    const { data } = await resp.json();
-    if (data) {
-      return data;
-    } else {
-      return {
-        id: "",
-        name: "",
-        description: "",
-        category: "",
-      };
-    }
+    const data = await resp.json();
+    return data;
   } catch (error) {
     return {
-      id: "",
-      name: "",
-      description: "",
-      category: "",
-    };
+      error: true,
+      message: "Ocurrio un error, intente de nuevo",
+      data:[]
+  };
   }
 };

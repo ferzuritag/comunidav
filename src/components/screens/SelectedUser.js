@@ -29,7 +29,7 @@ export const SelectedUser = ({ history }) => {
   const {
     id,
     name,
-    lastName:lastName1,
+    lastName: lastName1,
     lastName2,
     username,
     email,
@@ -42,11 +42,21 @@ export const SelectedUser = ({ history }) => {
 
   useEffect(() => {
     (async () => {
-      const userData = await getUserById(userID);
-      setUserData(userData);
-      setCountries(await getCountries());
-      setStates(await getStatesByCountry(userData.country.toString()));
-      setCities(await getCitysByState(userData.state.toString()));
+      const { error, data: userData } = await getUserById(userID);
+      if (!error) {
+        const { data: countries } = await getCountries();
+        const { data: states } = await getStatesByCountry(
+          userData.country.toString()
+        );
+        const { data: cities } = await getCitysByState(
+          userData.state.toString()
+        );
+
+        setUserData(userData);
+        setCountries(countries);
+        setStates(states);
+        setCities(cities);
+      }
       setIsLoading(false);
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -60,7 +70,10 @@ export const SelectedUser = ({ history }) => {
       country: target.value,
     });
     (async () => {
-      setStates(await getStatesByCountry(target.value));
+      const { error, data: states } = await getStatesByCountry(target.value);
+      if (!error) {
+        setStates(states);
+      }
     })();
     setCities([]);
   };
@@ -72,7 +85,10 @@ export const SelectedUser = ({ history }) => {
       city: "menu-name",
     });
     (async () => {
-      setCities(await getCitysByState(target.value));
+      const { error, data: cities } = await getCitysByState(target.value);
+      if (!error) {
+        setCities(cities);
+      }
     })();
   };
 
@@ -116,12 +132,11 @@ export const SelectedUser = ({ history }) => {
     var option = window.confirm("¿Esta seguro que desea eliminar?");
     if (option === true) {
       const data = await deleteUser(id);
-      const{error,message} = data;
-      console.log(await data)
+      const { error, message } = data;
       if (error === false) {
         await alert(message);
         history.replace("/users");
-      }else{
+      } else {
         alert(message);
       }
     }

@@ -8,7 +8,7 @@ export const UserForm = () => {
             {info.map((i) => (
                 <div className="users-screen__group">
                     <label className="users-screen__label">{i}</label>
-                    <input className="input users-screen__input" type="text" placeholder={i} />
+                    <input className="input users-screen__input" type="text" placeholder={i} autoComplete = "off"/>
                 </div>
 
             ))}

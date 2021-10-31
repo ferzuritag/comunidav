@@ -9,38 +9,13 @@ export const getUserById = async(id) =>{
                 'access-token': sessionStorage.getItem("SESSID")
             }
         });
-        const {data} = await resp.json();
-        if(data){
-            
+        const data = await resp.json();
         return data;
-        }else{
-            return {
-                id: '',
-                name : '',
-                lastName1 : '',
-                lastName2: '',
-                username: '',
-                email: '',
-                phone: '',
-                city: '',
-                state: '',
-                country: '',
-                path: '',
-            };
-        }
     } catch (error) {
         return {
-            id: '',
-            name : '',
-            lastName1 : '',
-            lastName2: '',
-            username: '',
-            email: '',
-            phone: '',
-            city: '',
-            state: '',
-            country: '',
-            path: '',
+            error: true,
+            message: "Ocurrio un error, intente de nuevo",
+            data:[]
         };
     }
 

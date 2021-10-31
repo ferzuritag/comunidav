@@ -34,6 +34,7 @@ export const UsersScreen = () => {
         state: selected.state,
         city: selected.city,
       });
+
       if (error === false) {
         setUsers(data);
       } else {
@@ -50,7 +51,10 @@ export const UsersScreen = () => {
       country: target.value,
     });
     (async () => {
-      setStates(await getStatesByCountry(target.value));
+      const {error,data} =await getStatesByCountry(target.value);
+      if (!error) {
+        setStates(data);
+      }
     })();
     setCities([]);
   };
@@ -62,18 +66,24 @@ export const UsersScreen = () => {
       state: target.value,
     });
     (async () => {
-      setCities(await getCitysByState(target.value));
+      const { error, data } = await getCitysByState(target.value);
+      if (!error) {
+        setCities(data);
+      }
     })();
-    setCities([]);
   };
 
   useEffect(() => {
     (async () => {
-      setCountries(await getCountries());
-      const { data } = await getUsers({});
-      setUsers(data);
+      const { error: errCountries, data: countries } = await getCountries({});
+      const { error: errUsers, data: users } = await getUsers({});
+      if (!errCountries || errUsers) {
+        setCountries(countries);
+        setUsers(users);
+      }
       setIsLoading(false);
     })();
+
     return () => {
       setCountries([]);
       setCities([]);
@@ -82,7 +92,7 @@ export const UsersScreen = () => {
     };
   }, []);
   //El valor i en opciones es para index, es necesario que sea un caracter para que funcione la comparacion
-  if (isLoading ===true) {
+  if (isLoading === true) {
     return (
       <div className="loading-container">
         <p>Cargando...</p>

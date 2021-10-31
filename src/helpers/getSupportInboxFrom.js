@@ -11,13 +11,7 @@ export const getSupportInboxFrom = async(id) => {
             }
         });
         const data = await resp.json();
-        const array = data.map(({message,de,para}) => ({
-            "data": message,
-            "from": de,
-            "to": para,
-        }));
-        console.log(array)
-        return array;
+        return data;
     } catch (error) {
         return [];
     }
