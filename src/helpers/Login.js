@@ -7,12 +7,12 @@ export const Login = async({user, password}) => {
     formData.append("password", md5(password));
     try {
         const url = `${server}Login.php`;
-        const data = await fetch(url, {
+        const resp = await fetch(url, {
             method: 'POST',
             body: formData,
         });
-        const resp = await data.json();
-        return resp;
+        const data = await resp.json();
+        return data;
     } catch (error) {
         return {
             error: true,

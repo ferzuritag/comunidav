@@ -11,7 +11,7 @@ export const updateAsoc = async ({ id, name, description, category }) => {
     const url = `${server}Asocs.php`;
     const resp = await fetch(url, {
       headers: {
-        "access-token": sessionStorage.getItem("SESSID"),
+        'Access-Token': sessionStorage.getItem("SESSID"),
       },
       method: "POST",
       body: formData,

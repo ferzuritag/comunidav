@@ -10,12 +10,11 @@ export const updateUser = async ({id,name,lastName1,lastName2,email,phone,city,u
   formData.append("email",email);
   formData.append("phone",phone);
   formData.append("city",city);
-  formData.append("username",username);
   try {
     const url = `${server}Users.php`;
     const resp = await fetch(url, {
       headers:{
-        'access-token': sessionStorage.getItem("SESSID")
+        'Access-Token': sessionStorage.getItem("SESSID")
     },
       method: 'POST',
       body: formData,

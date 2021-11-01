@@ -19,7 +19,7 @@ export const getCitysByState = async (id) => {
     }
   } else {
     return {
-      error: true,
+      error: false,
       message: "Ocurrio un error, intente de nuevo",
       data:[]
   };

@@ -23,7 +23,8 @@ export const LoginScreen = () => {
     e.preventDefault();
     setDisable(true);
     const { error, data, message } = await Login(loginData);
-    if (error === false) {
+    console.log(data)
+    if (!error) {
       sessionStorage.setItem("SESSID", data.token);
       history.go(0);
     } else {
@@ -37,7 +38,7 @@ export const LoginScreen = () => {
       <div className="login__body">
         <div className="login__login-box">
           <h1 className=" title login__title"> Iniciar Sesion</h1>
-          <form>
+          <form onSubmit={handleLogin}>
             <input
               className=" input login__input"
               type="text"
@@ -60,7 +61,6 @@ export const LoginScreen = () => {
 
             <button
               className="btn btn-submit login__btn"
-              onClick={handleLogin}
               disabled={disable}
             >
               Enviar

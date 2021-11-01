@@ -52,8 +52,9 @@ export const UsersScreen = () => {
     });
     (async () => {
       const {error,data} =await getStatesByCountry(target.value);
-      if (!error) {
-        setStates(data);
+      if(!error){
+        
+      setStates(data);
       }
     })();
     setCities([]);
@@ -67,7 +68,8 @@ export const UsersScreen = () => {
     });
     (async () => {
       const { error, data } = await getCitysByState(target.value);
-      if (!error) {
+      if(!error){
+        
         setCities(data);
       }
     })();

@@ -16,7 +16,7 @@ export const SelectedUser = ({ history }) => {
   const [userData, setUserData] = useState({
     id: userID,
     name: "",
-    lastName: "",
+    lastName1: "",
     lastName2: "",
     username: "",
     email: "",
@@ -29,7 +29,7 @@ export const SelectedUser = ({ history }) => {
   const {
     id,
     name,
-    lastName: lastName1,
+    lastName1,
     lastName2,
     username,
     email,
@@ -86,8 +86,9 @@ export const SelectedUser = ({ history }) => {
     });
     (async () => {
       const { error, data: cities } = await getCitysByState(target.value);
-      if (!error) {
-        setCities(cities);
+      if(!error){
+        
+      setCities(cities);
       }
     })();
   };
@@ -121,9 +122,13 @@ export const SelectedUser = ({ history }) => {
     } else if (city === "menu-name") {
       alert("seleccione un Municipio");
     } else {
-      const resp = await updateUser(userData);
-      await alert(resp);
-      history.replace("/users");
+      const { error, message } = await updateUser(userData);
+      if (!error) {
+        await alert(message);
+        history.replace("/users");
+      } else {
+        await alert(message);
+      }
     }
   };
 
@@ -178,7 +183,7 @@ export const SelectedUser = ({ history }) => {
               placeholder="ej. comunidav99"
               value={lastName1}
               onChange={handleChange}
-              name="lastName"
+              name="lastName1"
             />
           </div>
           <div className=" selected-user__group">

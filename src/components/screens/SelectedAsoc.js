@@ -25,7 +25,7 @@ export const SelectedAsoc = ({ history }) => {
       }
       setIsLoading(false);
     })();
-  }, []);
+  }, [id]);
 
   const handleChange = (e) => {
     setAsocData({
@@ -37,11 +37,11 @@ export const SelectedAsoc = ({ history }) => {
   const handleSave = async (e) => {
     e.preventDefault();
     if (name.length < 6) {
-      await alert("El nombre debe ser minimo de 6 caracteres");
+      alert("El nombre debe ser minimo de 6 caracteres");
     } else if (description.length < 6) {
-      await alert("La descripcion debe ser minimo de 6 caracteres");
+      alert("La descripcion debe ser minimo de 6 caracteres");
     } else if (!validator.isInt(category.toString())) {
-      await alert("Por favor elija una categoria");
+      alert("Por favor elija una categoria");
     } else {
       const { error, message } = await updateAsoc(asocData);
       if (!error) {

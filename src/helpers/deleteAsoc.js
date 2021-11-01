@@ -8,7 +8,7 @@ export const deleteAsoc = async(id) => {
         const resp = await fetch(url,{
           method: "POST",
           headers:{
-              'access-token': sessionStorage.getItem("SESSID")
+              'Access-Token': sessionStorage.getItem("SESSID")
           },
           body: formData,
       });

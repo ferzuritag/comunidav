@@ -6,7 +6,7 @@ export const getUserById = async(id) =>{
         const resp = await fetch(url,{
             method: "GET",
             headers:{
-                'access-token': sessionStorage.getItem("SESSID")
+                'Access-Token': sessionStorage.getItem("SESSID")
             }
         });
         const data = await resp.json();

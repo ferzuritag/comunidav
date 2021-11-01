@@ -7,7 +7,7 @@ export const getUsers = async ({username = '', country = '',state = '',city = ''
             const resp = await fetch(url,{
                 method: "GET",
                 headers:{
-                    'access-token': sessionStorage.getItem("SESSID")
+                    'Access-Token': sessionStorage.getItem("SESSID")
                 }
             });
             const data = await resp.json();
@@ -25,7 +25,7 @@ export const getUsers = async ({username = '', country = '',state = '',city = ''
             const resp = await fetch(url,{
                 method: "GET",
                 headers:{
-                    'access-token': sessionStorage.getItem("SESSID")
+                    'Access-Token': sessionStorage.getItem("SESSID")
                 }
             });
             const data = await resp.json();
@@ -43,7 +43,7 @@ export const getUsers = async ({username = '', country = '',state = '',city = ''
             const resp = await fetch(url,{
                 method: "GET",
                 headers:{
-                    'access-token': sessionStorage.getItem("SESSID")
+                    'Access-Token': sessionStorage.getItem("SESSID")
                 }
             });
             const data = await resp.json();
@@ -61,7 +61,7 @@ export const getUsers = async ({username = '', country = '',state = '',city = ''
             const resp = await fetch(url,{
                 method: "GET",
                 headers:{
-                    'access-token': sessionStorage.getItem("SESSID")
+                    'Access-Token': sessionStorage.getItem("SESSID")
                 }
             });
             const data = await resp.json();
@@ -79,7 +79,7 @@ export const getUsers = async ({username = '', country = '',state = '',city = ''
             const resp = await fetch(url,{
                 method: "GET",
                 headers:{
-                    'access-token': sessionStorage.getItem("SESSID")
+                    'Access-Token': sessionStorage.getItem("SESSID")
                 }
             });
             const data = await resp.json();
@@ -97,7 +97,7 @@ export const getUsers = async ({username = '', country = '',state = '',city = ''
             const resp = await fetch(url,{
                 method: "GET",
                 headers:{
-                    'access-token': sessionStorage.getItem("SESSID")
+                    'Access-Token': sessionStorage.getItem("SESSID")
                 }
             });
             const data = await resp.json();
@@ -115,7 +115,7 @@ export const getUsers = async ({username = '', country = '',state = '',city = ''
             const resp = await fetch(url,{
                 method: "GET",
                 headers:{
-                    'access-token': sessionStorage.getItem("SESSID")
+                    'Access-Token': sessionStorage.getItem("SESSID")
                 }
             });
             const data = await resp.json();
@@ -133,7 +133,7 @@ export const getUsers = async ({username = '', country = '',state = '',city = ''
             const resp = await fetch(url,{
                 method: "GET",
                 headers:{
-                    'access-token': sessionStorage.getItem("SESSID"),
+                    'Access-Token': sessionStorage.getItem("SESSID"),
                 }
             });
             const data = await resp.json();
