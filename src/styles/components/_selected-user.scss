@@ -6,11 +6,13 @@
     border: 1px solid $border;
     width: 400px;
     margin: 40px auto;
+    box-shadow: lightgray 0 0 2px;
     h1{
       color: $font-black;  
       margin-bottom: 20px;  
     }
 }
+
 
 .selected-user__group{
     margin-bottom: 20px;

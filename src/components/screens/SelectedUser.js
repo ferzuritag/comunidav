@@ -86,9 +86,8 @@ export const SelectedUser = ({ history }) => {
     });
     (async () => {
       const { error, data: cities } = await getCitysByState(target.value);
-      if(!error){
-        
-      setCities(cities);
+      if (!error) {
+        setCities(cities);
       }
     })();
   };
@@ -134,8 +133,8 @@ export const SelectedUser = ({ history }) => {
 
   const handleDelete = async (e) => {
     e.preventDefault();
-    var option = window.confirm("¿Esta seguro que desea eliminar?");
-    if (option === true) {
+    var option = window.prompt("¿Esta seguro que desea eliminar?, Escriba 'aceptar' ");
+    if (option === "aceptar") {
       const data = await deleteUser(id);
       const { error, message } = data;
       if (error === false) {
@@ -150,16 +149,16 @@ export const SelectedUser = ({ history }) => {
     <div className="selected-user__container ">
       {isLoading ? (
         <div className="loading-container">
-
-<p>Cargando...</p>
+          <p>Cargando...</p>
         </div>
       ) : (
         <form className="selected-user__form animate__animated animate__fadeIn">
-            
-        <h1>{`${name} ${lastName1} ${lastName2}`}</h1>
+          <h1>{`${name} ${lastName1} ${lastName2}`}</h1>
           <img alt=" " src={path} className="user-img img-b mb-b" />
           <div className=" selected-user__group">
-            <label for="username"className="selected-user__label">Usuario</label>
+            <label for="username" className="selected-user__label">
+              Usuario
+            </label>
             <input
               className="input selected-user__input"
               type="text"
@@ -235,7 +234,6 @@ export const SelectedUser = ({ history }) => {
               className="select-menu"
               onChange={onChangeCountry}
               name="country"
-              
             >
               <option value="menu-name">Pais</option>
               {countries.map((item) => (

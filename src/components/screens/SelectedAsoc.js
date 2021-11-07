@@ -54,8 +54,8 @@ export const SelectedAsoc = ({ history }) => {
   };
 
   const handleDelete = async (e) => {
-    var option = window.confirm("¿Esta seguro que desea eliminar?");
-    if (option === true) {
+    var option = window.prompt("¿Esta seguro que desea eliminar?, Escriba 'aceptar' ");
+    if (option === "aceptar") {
       const { error, message } = await deleteAsoc(id);
       if (error) {
         await alert(message);
