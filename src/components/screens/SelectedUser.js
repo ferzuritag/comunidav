@@ -149,7 +149,10 @@ export const SelectedUser = ({ history }) => {
   return (
     <div className="selected-user__container ">
       {isLoading ? (
-        <p>Cargando...</p>
+        <div className="loading-container">
+
+<p>Cargando...</p>
+        </div>
       ) : (
         <form className="selected-user__form animate__animated animate__fadeIn">
             

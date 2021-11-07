@@ -74,7 +74,7 @@ export const SelectedAsoc = ({ history }) => {
     );
   } else {
     return (
-      <div className="selected-user__container">
+      <div className="selected-asoc__body">
         <form className="selected-user__form animate__animated animate__fadeIn">
           <div className=" selected-user__group">
             <label className="selected-user__label">Nombre</label>
