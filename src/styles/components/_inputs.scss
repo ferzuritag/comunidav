@@ -5,6 +5,7 @@
     border-radius: 4px;
     transition: border .3s ease;
 
+    box-shadow: lightgray 0 0 3px;
     &:focus{
         outline: none;
         border: none;
@@ -12,6 +13,9 @@
     }
     &::placeholder{
         color: #989696;
+    }
+    &:focus::placeholder{
+        color: $accept;
     }
     
 }

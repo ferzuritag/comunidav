@@ -5,15 +5,13 @@
     padding: 20px;
     border: 1px solid $border;
     width: 400px;
+    margin: 40px auto;
+    h1{
+      color: $font-black;  
+      margin-bottom: 20px;  
+    }
 }
 
-.selected-user__container{
-    display: flex;
-    width: 100%;
-    height: calc(100vh - 60px);
-    align-items: center;
-    justify-content: center;
-}
 .selected-user__group{
     margin-bottom: 20px;
 }

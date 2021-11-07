@@ -81,7 +81,7 @@ export const SelectedAsoc = ({ history }) => {
             <input
               className="input selected-user__input"
               type="text"
-              placeholder="ej. comunidav99"
+              placeholder="ej. Comunidav"
               value={name}
               onChange={handleChange}
               name="name"
@@ -93,7 +93,6 @@ export const SelectedAsoc = ({ history }) => {
             <textarea
               className="input selected-asoc__text-area"
               type="text"
-              placeholder="ej. comunidav99"
               value={description}
               onChange={handleChange}
               name="description"

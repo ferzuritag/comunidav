@@ -152,16 +152,18 @@ export const SelectedUser = ({ history }) => {
         <p>Cargando...</p>
       ) : (
         <form className="selected-user__form animate__animated animate__fadeIn">
+            
+        <h1>{`${name} ${lastName1} ${lastName2}`}</h1>
           <img alt=" " src={path} className="user-img img-b mb-b" />
           <div className=" selected-user__group">
-            <label className="selected-user__label">Usuario</label>
+            <label for="username"className="selected-user__label">Usuario</label>
             <input
               className="input selected-user__input"
               type="text"
-              placeholder="ej. comunidav99"
               value={username}
               name="username"
               onChange={handleChange}
+              autoComplete="off"
             />
           </div>
           <div className=" selected-user__group">
@@ -169,10 +171,10 @@ export const SelectedUser = ({ history }) => {
             <input
               className="input selected-user__input"
               type="text"
-              placeholder="ej. comunidav99"
               value={name}
               onChange={handleChange}
               name="name"
+              autoComplete="off"
             />
           </div>
           <div className=" selected-user__group">
@@ -180,10 +182,10 @@ export const SelectedUser = ({ history }) => {
             <input
               className="input selected-user__input"
               type="text"
-              placeholder="ej. comunidav99"
               value={lastName1}
               onChange={handleChange}
               name="lastName1"
+              autoComplete="off"
             />
           </div>
           <div className=" selected-user__group">
@@ -191,10 +193,10 @@ export const SelectedUser = ({ history }) => {
             <input
               className="input selected-user__input"
               type="text"
-              placeholder="ej. comunidav99"
               value={lastName2}
               onChange={handleChange}
               name="lastName2"
+              autoComplete="off"
             />
           </div>
           <div className=" selected-user__group">
@@ -206,6 +208,7 @@ export const SelectedUser = ({ history }) => {
               value={email}
               onChange={handleChange}
               name="email"
+              autoComplete="off"
             />
           </div>
 
@@ -218,6 +221,7 @@ export const SelectedUser = ({ history }) => {
               value={phone}
               onChange={handleChange}
               name="phone"
+              autoComplete="off"
             />
           </div>
 
@@ -228,6 +232,7 @@ export const SelectedUser = ({ history }) => {
               className="select-menu"
               onChange={onChangeCountry}
               name="country"
+              
             >
               <option value="menu-name">Pais</option>
               {countries.map((item) => (

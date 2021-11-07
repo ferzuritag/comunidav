@@ -1,1 +1,1 @@
-export const server = "http://localhost:8080/master-php/comunidav/api/";
+export const server = "https://soporte.comunidav.org/api/";

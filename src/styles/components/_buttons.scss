@@ -12,6 +12,8 @@
 
 .btn-submit{
     background-color: $accept;
+    
+    box-shadow: $accept 0 0 2px;
     &:enabled:hover{
         background-color: darken($accept, 5%);
     }

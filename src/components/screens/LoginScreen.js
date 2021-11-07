@@ -37,7 +37,7 @@ export const LoginScreen = () => {
       <Banner />
       <div className="login__body">
         <div className="login__login-box">
-          <h1 className=" title login__title"> Iniciar Sesion</h1>
+          <h1> Iniciar Sesión</h1>
           <form onSubmit={handleLogin}>
             <input
               className=" input login__input"
@@ -48,11 +48,10 @@ export const LoginScreen = () => {
               name="user"
               autoComplete="off"
             />
-
             <input
               className=" input login__input"
               type="password"
-              placeholder="Contrasena"
+              placeholder="Contraseña"
               value={password}
               onChange={handleChange}
               name="password"
