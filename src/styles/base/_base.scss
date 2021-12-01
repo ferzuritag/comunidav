@@ -16,6 +16,23 @@ body{
     min-width: 1000px;
     min-height: 600px;
 }
+.full-body{
+    height: calc(100vh - 60px);
+    width: 100%;
+}
+.flex-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.flex-column-center{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.card{
+    border: 1px solid #C8C7C7;
+}
 .title{
     color: #A9A8A8;
     text-align: center;

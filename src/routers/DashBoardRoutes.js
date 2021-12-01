@@ -5,6 +5,8 @@ import {
 } from "react-router-dom";
 import { Navbar } from '../components/others/Navbar'
 import { AsocsScreen } from '../components/screens/AsocsScreen';
+import { EventSelected } from '../components/screens/EventSelected';
+import { EventsScreen } from '../components/screens/EventsScreen';
 import { SelectedAsoc } from '../components/screens/SelectedAsoc';
 import { SelectedUser } from '../components/screens/SelectedUser';
 import { SupportScreen } from '../components/screens/SupportScreen';
@@ -21,6 +23,8 @@ export const DashBoardRoutes = () => {
                     <Route exact path="/users/:userID" component={SelectedUser} />
                     <Route exact path="/support" component={SupportScreen} />
                     <Route path="/users" component={SupportScreen} />
+                    <Route exact path="/events" component={EventsScreen} />
+                    <Route exact path="/events/:eventID" component={EventSelected} />
                 </Switch>
             </div>
         </div>

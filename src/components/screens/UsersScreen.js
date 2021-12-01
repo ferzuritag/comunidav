@@ -117,7 +117,6 @@ export const UsersScreen = () => {
               </option>
             ))}
           </select>
-
           <select
             value={selected.state}
             className="select-menu"
